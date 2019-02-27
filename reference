@@ -15,6 +15,8 @@ driver.findElement(By.id("elID")).sendKeys("inputtext");
 
 String str1= driver.findElement(By.xpath("//*[@id=\"mainholder\"]/table[2]/tbody/tr[1]/td[1]/form[3]/table[3]/tbody/tr[2]/td[2]/a")).getText();
 
+driver.switchTo.frame("Frame_ID");
+driver.switchTo().defaultContent();
 
 String[] key1 = new String[8];
 key1[0]= Character.toString((char)a);
