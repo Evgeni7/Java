@@ -1,0 +1,36 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+WebDriver driver = new ChromeDriver();
+
+driver.get("http://www.gmail.com/");
+driver.manage().window().maximize();
+driver.close();
+
+String at= driver.getTitle();
+
+driver.findElement(By.xpath("//*[@id=\"cat5\"]/select/option[9]")).click();
+driver.findElement(By.id("elID")).sendKeys("inputtext");
+
+String str1= driver.findElement(By.xpath("//*[@id=\"mainholder\"]/table[2]/tbody/tr[1]/td[1]/form[3]/table[3]/tbody/tr[2]/td[2]/a")).getText();
+
+
+String[] key1 = new String[8];
+key1[0]= Character.toString((char)a);
+
+
+			if (at.equalsIgnoreCase(et)) {
+				System.out.print("Test Successful");
+			}
+			else
+			{
+				System.out.print("Test failed");
+			}
+      
+      
+      
+		        throws InterruptedException 
+            {
+              Thread.sleep(2000);
+            }
