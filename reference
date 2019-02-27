@@ -30,6 +30,9 @@ key1[0]= Character.toString((char)a);
 				System.out.print("Test failed");
 			}
       
+
+//Check if a = 10.
+Assert.assertEquals("Message on failure here", 10, a);
       
 
 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
