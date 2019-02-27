@@ -31,8 +31,10 @@ key1[0]= Character.toString((char)a);
 			}
       
       
+
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
       
-		        throws InterruptedException 
-            {
-              Thread.sleep(2000);
-            }
+throws InterruptedException 
+{
+	Thread.sleep(2000);
+}
