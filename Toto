@@ -1,0 +1,83 @@
+//Task: 6 different integer numbers between 1 and 49(including) are generated. Can you guess them all?
+
+package taskpack;
+
+import java.util.concurrent.ThreadLocalRandom;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class Toto {
+
+	 public static int inputNumber() throws IOException {
+		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	        System.out.println("Enter Integer:");
+	        String input = br.readLine();
+	        int num = 0;
+	        try{
+	            num = Integer.parseInt(input);
+	        }catch(NumberFormatException nfe){
+	            System.err.println("Enter an integer value.");
+	            inputNumber();
+	        }
+	        return num;
+	 }
+	
+	
+	public static void main(String[] args) throws IOException {
+       
+		
+		int[] numbers = new int[6];
+		int[] generatedNum = new int[6];
+
+
+		for (int i = 0; i<=5; i++) {
+			numbers[i] = Toto.inputNumber();
+			if (numbers[i]>49 || numbers[i]<1) {
+				i--;
+				System.out.println("Please enter a number between 1 and 49.");
+			}
+			for (int a=0; a<i; a++) {
+				if (numbers[i]==numbers[a])
+				{
+					i--;
+					System.out.println("You already entered that number.");
+				}
+			}
+		}
+		
+		for (int i = 0; i<=5; i++) {
+		generatedNum[i] = ThreadLocalRandom.current().nextInt(1, 49);
+		System.out.print("Generated numbers are: " + generatedNum[i] + " ");
+		
+		for (int a=0; a<i; a++) {
+			if (numbers[i]==numbers[a])
+			{
+				i--;
+			}
+		}
+		
+		}
+
+		int counter = 0;
+		for (int i = 0; i<6; i++) {
+			for (int y = 0; y<6; y++)
+			if (numbers[i] == generatedNum[y])
+			{
+				counter++;
+			}
+			
+		}
+
+		if (counter == 1 || counter == 0) {
+			System.out.print("You guessed " + counter + " number!");
+		}
+		else
+		{
+			System.out.print("You guessed " + counter + " numbers!");
+		}
+		
+	}
+
+}
